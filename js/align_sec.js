@@ -14,6 +14,7 @@ setTimeout(function() {
   main.logo.style.opacity = 0;
   setTimeout(function() {
     document.body.removeChild(document.getElementById('main_logo'));
-  }, 1500);
+    window.location.replace('store.html');
+  }, 1100);
   clearInterval(start_logo);
 }, 2000)
