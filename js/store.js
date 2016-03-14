@@ -109,3 +109,74 @@ closeMenu = function() {
   menu.style.right = '-36%';
   menu_button.style.right = '12px';
 }
+
+var sw2 = {
+  count: document.getElementById('sw2_pool_count'),
+  time: document.getElementById('sw2_pool_time'),
+  rnd: Math.floor(Math.random() * 15) + 1,
+
+  people: 324,
+
+  hr: 2,
+  min: 52,
+  sec: 36,
+  secSTR: ''
+}
+
+setInterval(function() {
+  sw2.rnd = Math.floor(Math.random() * 15) + 1;
+  if(sw2.sec <= 0) {
+    sw2.sec = 60;
+    sw2.min -= 1;
+  }
+  sw2.sec -= 1;
+
+  sw2.secSTR = numFormat(sw2.sec);
+
+
+  sw2.time.innerHTML = 'Pool ends in ' + sw2.hr + ':' + sw2.min + ':' + sw2.secSTR;
+  console.log(sw2.rnd);
+  if(sw2.rnd === 10) {
+    sw2.people += 1;
+    sw2.count.innerHTML = sw2.people + ' people are in the pool to buy this product';
+  }
+
+}, 1000);
+
+var samTab = {
+  count: document.getElementById('sam_tab_pool_count'),
+  time: document.getElementById('sam_tab_pool_time'),
+  rnd: Math.floor(Math.random() * 15) + 1,
+
+  people: 441,
+
+  hr: 0,
+  min: 21,
+  sec: 03,
+  secSTR: ''
+}
+
+setInterval(function() {
+  samTab.rnd = Math.floor(Math.random() * 15) + 1;
+  if(samTab.sec <= 0) {
+    samTab.sec = 60;
+    samTab.min -= 1;
+  }
+  samTab.sec -= 1;
+
+  samTab.secSTR = numFormat(samTab.sec);
+
+
+  samTab.time.innerHTML = 'Pool ends in ' + samTab.hr + ':' + samTab.min + ':' + samTab.secSTR;
+  console.log(samTab.rnd);
+  if(samTab.rnd === 10) {
+    samTab.people += 1;
+    samTab.count.innerHTML = samTab.people + ' people are in the pool to buy this product';
+  }
+
+}, 1000);
+
+
+numFormat = function(num) {
+  return (num < 10 ? '0' : '') + num;
+}
